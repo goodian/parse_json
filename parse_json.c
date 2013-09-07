@@ -98,7 +98,9 @@ static inline int http_json_arg_decode(char *session, char *s, const size_t len)
             }
             break;
         } //end switch                                           
-        if (e_stat == v_end) {
+        if (e_stat == done)
+            break;
+        else if (e_stat == v_end) {
             printf("key: %.*s.\n", k_len, k);
             printf("value: %.*s.\n", v_len, v);
             e_stat = begin;
@@ -106,6 +108,7 @@ static inline int http_json_arg_decode(char *session, char *s, const size_t len)
         }
     }                                               
 
+    return 0;
 end_with_error:
     return -1;
 }   
@@ -170,6 +173,7 @@ int main()
     char *s= "{\"e\" : [\"xiaoao\",\"xiaoba\",\"xiaoma\"],\"Education\":{\"GradeSchool\" : \"huayixiao\",\"MiddleSchool\" : [\"l\" , \"gao\"], \"University\" :{ \"Name\" : \"aa\", \"Specialty\" : [\"d\",\"aaa\"]}}}";
     //char *s = "{\"N\":\"V\",\"t\":\"0\",\"lastScene\":\"-1\",\"ID\":\"5\"}";
     //char *s = "{\"t\":0,\"l\":-1,\"ID\":5}";
+    printf(s);
     http_json_arg_decode(s, s, strlen(s));
     return 0;
 }
