@@ -213,30 +213,9 @@ int find_right_braces(char *pos, const size_t len)
 
 int main()
 {
-    char *str[100];
-	int len = 0;
-    str[0] = "{\"Name\":\"VIDEO\",\"type\":0,\"lastScene\":-1,\"ID\":5}";
-    str[1] = "{\"e\" : [\"xa\",\"xb\"],\"Education\":{\"GradeSchool\" : \"huayixiao\",\"MiddleSchool\" : [\"l\" , \"gao\"], \"University\" :{ \"Name\" : \"aa\", \"Specialty\" : [\"d\",\"aaa\"]}}}";
-    str[2] = "{\"N\":\"V\",\"t\":\"0\",\"lastScene\":\"-1\",\"ID\":\"5\"}";
-    str[3] = "{\"t\":0,\"l\":-1,\"ID\":5}";
-	str[4] = "{\"admin\":{\"password\":\"0192023a\\\"7bbd732\\\"50516f069df18b500\",\"mail\":\"support@intra.nsfocus.com\",\"roles\":[\"ADMINISTRATORS\"],\"isSystem\":true,\"pswdLength\":8,\"pswdComplex\":{\"num\":3,\"lowLetter\":5,\"upLetter\":0,\"symbol\":0},\"alterDate\":1373864610},\"auditor\":{\"password\":\"5cb59fe845b83231b0e5aa95d96267e9\",\"mail\":\"support@intra.nsfocus.com\",\"roles\":[\"AUDITORS\"],\"isSystem\":true,\"pswdLength\":10,\"pswdComplex\":{\"num\":3,\"lowLetter\":7,\"upLetter\":0,\"symbol\":0},\"alterDate\":1373864943}}";
-	str[5] = "{\"BankId\":\"img=\\\"jav\\nascript:allert('xss')\"}";
-	str[6] = "{\"PayerAcNo\":\"6214692201000071363\",\"PayerBankAcType\":\"PDPB\",\"PayerAcName\":\".........\",\"DeptId\":\"801011\",\"PayerSubAc\":{\"Rate\":\"0.385\",\"SubDeptId\":\"801011\",\"TimRenewFlag\":\"0\",\"IntBeginDate\":\"2013-06-21\",\"Term\":\"000\",\"SubAcState\":\"0\",\"Currency\":\"CNY\",\"TimType\":\"S01\",\"SubOpenDate\":\"2012-02-17\",\"CRFlag\":\"X\",\"Balance\":\"12255.17\",\"SubAcSeq\":\"00001\",\"AvailBal\":\"12255.17\"},\"PayeeCifType\":\"2\",\"SysFlag\":\"1\",\"TransferType\":\"\",\"PayeeAcName\":\".........\",\"PayeeAcNo\":\"6216611900007541053\",\"SavePayeeFlag\":\"0\",\"RePayeeAcNo\":\"6216611900007541053\",\"NotifyPayeeFlag\":\"0\",\"PayeeMobile\":\"\",\"Priority\":\"0\",\"Amount\":\"20.00\",\"ChineseCash\":\"............\",\"Remark\":\"\",\"PayeeBankId\":\"104100000004\",\"ProvinceCode\":\"44\",\"CityCode\":\"5810\",\"UnionDeptId\":\"104581006015\",\"PayerBalance\":\"12255.17\",\"_SignTransaction\":\"Transfer\",\"displayFields\":\"PayerAcNo,PayeeAcNo,Amount\",\"PayerCurrency\":\"CNY\",\"PayerSubAcSeq\":\"00001\",\"CRFlag\":\"X\",\"PayeeBankName\":\"............\",\"ProvinceName\":\".........\",\"UnionDeptName\":\"................................................\",\"NoteCode\":\"EU\"}";
-	str[7] = "{\"Index\":\"RG\",\"Flag\":true}";
-	str[8] = "{'KeySN':'1AA3768C1AF3AA76B19F9415FD2B7B0D','ProjectID':'65','username':'root','password':'jl2013fq'}";
-	str[9] = "{header:{\"code\":0,\"message\":{\"title\":\"\",\"detail\":\"\"}},body:{dataStores:{\"inputData\":{rowSet:{\"primary\":[],\"filter\":[],\"delete\":[]},name:\"inputData\",pageNumber:1,pageSize:2147483647,recordCount:0}},parameters:{\"rid\":\"ee8c6829-0817-424a-ae2e-a9d356f4478e\",\"isDeleteMemo\":\"true\",\"reportId\":\"ee8c6829-0817-424a-ae2e-a9d356f4478e\"}}}";
-	str[10] = "{Index:RG,Flag:true}";
-	str[11] = "{\"admin\":{\"password\":\"0192023a\\\"7bbd732\\\"50516f069df18b500\",\"mail\":\"support@intra.nsfocus.com\",\"roles\":[\"ADMINISTRATORS\"],\"isSystem\":true,\"pswdLength\":8,\"pswdComplex\":{\"num\":3,\"lowLetter\":5,\"upLetter\":0,\"symbol\":0},\"alterDate\":1373864610}}";
-	str[12] = "testtest";
-	int i = 0;
-	len = 12;
-	printf("len is %d..\n", len);
-	for (; i < len; i++) {
-		//if (i != 11) continue;
-		printf("===========begin %d========.\n", i);
-    	printf("%s.\n", str[i]);
-    	http_json_arg_decode(str[i], str[i], strlen(str[i]));
-	}
+    char *str = "{\"Name\":\"VIDEO\",\"type\":0,\"lastScene\":-1,\"ID\":5}";
+ 
+    http_json_arg_decode(NULL, str, strlen(str));
 
     return 0;
 }
